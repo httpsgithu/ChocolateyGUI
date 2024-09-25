@@ -8,23 +8,16 @@ You can install Chocolatey GUI via Chocolatey itself by executing:
 
 ```choco install ChocolateyGUI```
 
-If you are interested in trying out the latest pre-release version of Chocolatey GUI then you can use the following installation command:
-
-```choco install chocolateygui --source https://www.myget.org/F/chocolateygui/ --pre```
-
-This uses the public Chocolatey GUI feed which is hosted on [MyGet.org](https://www.myget.org) as the source.
-
 ## Build Status
 
-TeamCity  | Appveyor
-------------- | -------------
-[![TeamCity Build Status](http://img.shields.io/teamcity/codebetter/bt613.svg)](http://teamcity.codebetter.com/viewType.html?buildTypeId=bt613) | [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/t7p3ywv3msu5ahl7/branch/develop?svg=true)](https://ci.appveyor.com/project/chocolatey/chocolateygui/branch/develop)
+| GitHub Action                                                                                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/chocolatey/ChocolateyGUI/Build/develop?logo=github)](https://github.com/chocolatey/ChocolateyGUI/actions/workflows/build.yml)  |
 
 
 ## Chat Room
 
 Come join in the conversation about Chocolatey GUI in our Community Chat Room
-
 
 [![Discord](https://img.shields.io/discord/778552361454141460?logo=Discord)](https://ch0.co/community)
 
@@ -32,10 +25,9 @@ Or, you can find us in IRC at #chocolatey.
 
 ## Information
 
-* [Community Feed aka Chocolatey.org](https://chocolatey.org) (if this is down, try the backup at <http://chocolatey.apphb.com> )
-* [Mailing List/Forum](http://groups.google.com/group/chocolateygui)
+* [Chocolatey Community Repository](https://community.chocolatey.org)
+* [Chocolatey Documentation](https://docs.chocolatey.org)
 * [Twitter](https://twitter.com/chocolateynuget)
-* [Build Status Email List](http://groups.google.com/group/chocolatey-build-status)
 
 ### Documentation
 
@@ -78,7 +70,7 @@ If you would like to contribute code or help squash a bug or two, that's awesome
 
 ### Building
 
-* It is assumed that a version of Visual Studio 2019 is already installed on the machine being used to complete the build.
+* It is assumed that a version of Visual Studio 2019 or newer is already installed on the machine being used to complete the build.
 * `choco install wixtoolset -y`
 * **OPTIONAL:** Set `FXCOPDIR` environment variable, which can be set using [vswhere](https://chocolatey.org/packages/vswhere) and the following command:
    ```ps1
@@ -87,7 +79,7 @@ If you would like to contribute code or help squash a bug or two, that's awesome
    refreshenv
    ```
 * Install WiX toolset integration for your Visual Studio Integration from [here](https://marketplace.visualstudio.com/items?itemName=WixToolset.WixToolsetVisualStudio2019Extension)
-* From and **Administrative** PowerShell Window, navigate to the folder where you have cloned the Chocolatey GUI repository and run `build.ps1`, this will run Cake and it will go through the build script.
+* From an **Administrative** PowerShell Window, navigate to the folder where you have cloned the Chocolatey GUI repository and run `build.ps1`, this will run Cake and it will go through the build script.
   ```
   ./build.ps1
   ```

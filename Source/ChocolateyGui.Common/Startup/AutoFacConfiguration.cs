@@ -20,26 +20,26 @@ namespace ChocolateyGui.Common.Startup
             "Microsoft.Maintainability",
             "CA1506:AvoidExcessiveClassCoupling",
             Justification = "This is really a requirement due to required registrations.")]
-        public static IContainer RegisterAutoFac(string chocolateyGuiAssemblySimpleName, string licensedGuiAssemblyLocation)
+        public static IContainer RegisterAutoFac(string chocolateyGuiAssemblySimpleName, string licensedGuiAssemblyLocation, string publicKey)
         {
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(System.Reflection.Assembly.GetCallingAssembly());
 
-            var license = License.validate_license();
+            var license = License.ValidateLicense();
             if (license.IsValid)
             {
                 if (File.Exists(licensedGuiAssemblyLocation))
                 {
-                    var licensedGuiAssembly = AssemblyResolution.resolve_or_load_assembly(
+                    var licensedGuiAssembly = AssemblyResolution.ResolveOrLoadAssembly(
                         chocolateyGuiAssemblySimpleName,
-                        chocolatey.infrastructure.app.ApplicationParameters.OfficialChocolateyPublicKey,
+                        publicKey,
                         licensedGuiAssemblyLocation);
 
                     if (licensedGuiAssembly != null)
                     {
                         license.AssemblyLoaded = true;
                         license.Assembly = licensedGuiAssembly;
-                        license.Version = VersionInformation.get_current_informational_version(licensedGuiAssembly);
+                        license.Version = VersionInformation.GetCurrentInformationalVersion(licensedGuiAssembly);
 
                         builder.RegisterAssemblyModules(licensedGuiAssembly.UnderlyingType);
                     }

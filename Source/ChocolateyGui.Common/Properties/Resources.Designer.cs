@@ -19,7 +19,7 @@ namespace ChocolateyGui.Common.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -156,24 +156,6 @@ namespace ChocolateyGui.Common.Properties {
         public static string AdvancedChocolateyDialog_AllowEmptyChecksumsSecure_ToolTip {
             get {
                 return ResourceManager.GetString("AdvancedChocolateyDialog_AllowEmptyChecksumsSecure_ToolTip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Allow Multiple Versions.
-        /// </summary>
-        public static string AdvancedChocolateyDialog_AllowMultipleVersions_Header {
-            get {
-                return ResourceManager.GetString("AdvancedChocolateyDialog_AllowMultipleVersions_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Should multiple versions of a package be installed?.
-        /// </summary>
-        public static string AdvancedChocolateyDialog_AllowMultipleVersions_ToolTip {
-            get {
-                return ResourceManager.GetString("AdvancedChocolateyDialog_AllowMultipleVersions_ToolTip", resourceCulture);
             }
         }
         
@@ -444,6 +426,24 @@ namespace ChocolateyGui.Common.Properties {
         public static string AdvancedChocolateyDialog_IgnoreDependencies_ToolTip {
             get {
                 return ResourceManager.GetString("AdvancedChocolateyDialog_IgnoreDependencies_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ignore HTTP Cache.
+        /// </summary>
+        public static string AdvancedChocolateyDialog_IgnoreHttpCache_Header {
+            get {
+                return ResourceManager.GetString("AdvancedChocolateyDialog_IgnoreHttpCache_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ignore any HTTP caches that have previously been created when querying sources, and create new caches.
+        /// </summary>
+        public static string AdvancedChocolateyDialog_IgnoreHttpCache_ToolTip {
+            get {
+                return ResourceManager.GetString("AdvancedChocolateyDialog_IgnoreHttpCache_ToolTip", resourceCulture);
             }
         }
         
@@ -988,6 +988,15 @@ namespace ChocolateyGui.Common.Properties {
         public static string ChocolateyGUI_ShowConsoleOutputTitle {
             get {
                 return ResourceManager.GetString("ChocolateyGUI_ShowConsoleOutputTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip Modal Dialog Confirmation.
+        /// </summary>
+        public static string ChocolateyGUI_SkipModalDialogConfirmationTitle {
+            get {
+                return ResourceManager.GetString("ChocolateyGUI_SkipModalDialogConfirmationTitle", resourceCulture);
             }
         }
         
@@ -1929,15 +1938,6 @@ namespace ChocolateyGui.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Installed Side by Side with another version of the same package..
-        /// </summary>
-        public static string LocalSourceView_ToolTip_InstalledSideBySide {
-            get {
-                return ResourceManager.GetString("LocalSourceView_ToolTip_InstalledSideBySide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Pinned.
         /// </summary>
         public static string LocalSourceView_ToolTip_Pinned {
@@ -1965,7 +1965,7 @@ namespace ChocolateyGui.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All the currrently installed packages have been exported to {0}.
+        ///   Looks up a localized string similar to All the currently installed packages have been exported to {0}.
         /// </summary>
         public static string LocalSourceViewModel_ExportComplete {
             get {
@@ -3363,6 +3363,15 @@ namespace ChocolateyGui.Common.Properties {
         public static string SettingsView_ToggleShowConsoleOutputDescription {
             get {
                 return ResourceManager.GetString("SettingsView_ToggleShowConsoleOutputDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip modal dialog confirmations when performing potentially destructive actions..
+        /// </summary>
+        public static string SettingsView_ToggleSkipModalDialogConfirmationDescription {
+            get {
+                return ResourceManager.GetString("SettingsView_ToggleSkipModalDialogConfirmationDescription", resourceCulture);
             }
         }
         

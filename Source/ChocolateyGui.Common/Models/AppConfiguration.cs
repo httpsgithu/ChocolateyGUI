@@ -96,6 +96,10 @@ namespace ChocolateyGui.Common.Models
         [Feature]
         public bool? PreventUsageOfUpdateAllButton { get; set; }
 
+        [LocalizedDescription(nameof(Resources.SettingsView_ToggleSkipModalDialogConfirmationDescription))]
+        [Feature]
+        public bool? SkipModalDialogConfirmation { get; set; }
+
         public override string ToString()
         {
             return @"
@@ -119,7 +123,8 @@ HideAllRemoteChocolateySources: {16}
 DefaultToDarkMode: {17}
 HideThisPCSource: {18}
 PreventUsageOfUpdateAllButton: {19}
-".format_with(
+SkipModalDialogConfirmation: {20}
+".FormatWith(
                 OutdatedPackagesCacheDurationInMinutes,
                 DefaultSourceName,
                 UseLanguage,
@@ -139,7 +144,8 @@ PreventUsageOfUpdateAllButton: {19}
                 HideAllRemoteChocolateySources,
                 DefaultToDarkMode,
                 HideThisPCSource,
-                PreventUsageOfUpdateAllButton);
+                PreventUsageOfUpdateAllButton,
+                SkipModalDialogConfirmation);
         }
     }
 }

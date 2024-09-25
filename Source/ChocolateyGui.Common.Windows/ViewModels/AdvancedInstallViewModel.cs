@@ -18,7 +18,7 @@ using ChocolateyGui.Common.Services;
 using ChocolateyGui.Common.Windows.Commands;
 using ChocolateyGui.Common.Windows.Controls.Dialogs;
 using ChocolateyGui.Common.Windows.Utilities;
-using NuGet;
+using NuGet.Versioning;
 
 namespace ChocolateyGui.Common.Windows.ViewModels
 {
@@ -42,7 +42,7 @@ namespace ChocolateyGui.Common.Windows.ViewModels
         private bool _applyInstallArgumentsToDependencies;
         private bool _applyPackageParametersToDependencies;
         private bool _allowDowngrade;
-        private bool _allowMultipleVersions;
+        private bool _ignoreHttpCache;
         private bool _ignoreDependencies;
         private bool _forceDependencies;
         private bool _skipPowerShell;
@@ -60,14 +60,14 @@ namespace ChocolateyGui.Common.Windows.ViewModels
         public AdvancedInstallViewModel(
             IChocolateyService chocolateyService,
             IPersistenceService persistenceService,
-            SemanticVersion packageVersion)
+            NuGetVersion packageVersion)
         {
             _chocolateyService = chocolateyService;
             _persistenceService = persistenceService;
 
             _cts = new CancellationTokenSource();
 
-            _packageVersion = packageVersion.ToString();
+            _packageVersion = packageVersion.ToNormalizedStringChecked();
             SelectedVersion = _packageVersion;
 
             FetchAvailableVersions();
@@ -75,7 +75,7 @@ namespace ChocolateyGui.Common.Windows.ViewModels
             AvailableChecksumTypes = new List<string> { "md5", "sha1", "sha256", "sha512" };
             InstallCommand = new RelayCommand(
                 o => { Close?.Invoke(this); },
-                o => string.IsNullOrEmpty(SelectedVersion) || SelectedVersion == Resources.AdvancedChocolateyDialog_LatestVersion || SemanticVersion.TryParse(SelectedVersion, out _));
+                o => string.IsNullOrEmpty(SelectedVersion) || SelectedVersion == Resources.AdvancedChocolateyDialog_LatestVersion || NuGetVersion.TryParse(SelectedVersion, out _));
             CancelCommand = new RelayCommand(
                 o =>
                 {
@@ -226,10 +226,15 @@ namespace ChocolateyGui.Common.Windows.ViewModels
             set { SetPropertyValue(ref _allowDowngrade, value); }
         }
 
-        public bool AllowMultipleVersions
+        public bool IgnoreHttpCache
         {
-            get { return _allowMultipleVersions; }
-            set { SetPropertyValue(ref _allowMultipleVersions, value); }
+            get { return _ignoreHttpCache; }
+            set { SetPropertyValue(ref _ignoreHttpCache, value); }
+        }
+
+        public bool IgnoreHttpCacheIsAvailable
+        {
+            get { return ChocolateyConfigurationExtensions.HasCacheExpirationInMinutes(); }
         }
 
         public bool IgnoreDependencies
@@ -437,17 +442,17 @@ namespace ChocolateyGui.Common.Windows.ViewModels
 
         private void OnSelectedVersionChanged(string stringVersion)
         {
-            SemanticVersion version;
+            NuGetVersion version;
 
-            if (SemanticVersion.TryParse(stringVersion, out version))
+            if (NuGetVersion.TryParse(stringVersion, out version))
             {
-                PreRelease = !string.IsNullOrEmpty(version.SpecialVersion);
+                PreRelease = version.IsPrerelease;
             }
         }
 
         private void BrowseLogFile(object value)
         {
-            var filter = "{0}|{1}|{2}".format_with(
+            var filter = "{0}|{1}|{2}".FormatWith(
                 L(nameof(Resources.FilePicker_LogFiles)) + "|*.log;*.klg",
                 L(nameof(Resources.FilePicker_TextFiles)) + "|*.txt;*.text;*.plain",
                 L(nameof(Resources.FilePicker_AllFiles)) + "|*.*");

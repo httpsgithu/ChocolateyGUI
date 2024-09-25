@@ -635,9 +635,6 @@ Or if there is a traditional way to show sorting by the Title in your language, 
   <data name="RemoteSourceViewModel_FetchingPackages" xml:space="preserve">
     <value>Fetching packages...</value>
   </data>
-  <data name="LocalSourceView_ToolTip_InstalledSideBySide" xml:space="preserve">
-    <value>Installed Side by Side with another version of the same package.</value>
-  </data>
   <data name="LocalSourceView_ToolTip_Pinned" xml:space="preserve">
     <value>Pinned</value>
   </data>
@@ -1064,12 +1061,6 @@ Please contact your System Administrator to enable this operation.</value>
   <data name="AdvancedChocolateyDialog_AllowEmptyChecksums_ToolTip" xml:space="preserve">
     <value>Allow packages to have empty/missing checksums for downloaded resources from non-secure locations (HTTP, FTP). Using this switch is not recommended if using sources that download resources from the internet. Only overrides the value in the configuration when 'On' is specified.</value>
   </data>
-  <data name="AdvancedChocolateyDialog_AllowMultipleVersions_Header" xml:space="preserve">
-    <value>Allow Multiple Versions</value>
-  </data>
-  <data name="AdvancedChocolateyDialog_AllowMultipleVersions_ToolTip" xml:space="preserve">
-    <value>Should multiple versions of a package be installed?</value>
-  </data>
   <data name="AdvancedChocolateyDialog_ApplyInstallArgumentsToDependencies_Header" xml:space="preserve">
     <value>Apply Install Arguments to Dependencies</value>
   </data>
@@ -1241,8 +1232,11 @@ Please contact your System Administrator to enable this operation.</value>
   <data name="SettingsView_TogglePreventUsageOfUpdateAllButtonDescription" xml:space="preserve">
     <value>Prevents the ability for user to use the Update All button. NOTE: This feature will only work with Chocolatey for Business and the Chocolatey GUI licensed extension installed.</value>
   </data>
+  <data name="SettingsView_ToggleSkipModalDialogConfirmationDescription" xml:space="preserve">
+    <value>Skip modal dialog confirmations when performing potentially destructive actions.</value>
+  </data>
   <data name="LocalSourceViewModel_ExportComplete" xml:space="preserve">
-    <value>All the currrently installed packages have been exported to {0}</value>
+    <value>All the currently installed packages have been exported to {0}</value>
     <comment>{0} = The path to where the exported packages have been placed</comment>
   </data>
   <data name="SettingsView_Language" xml:space="preserve">
@@ -1301,6 +1295,9 @@ Please contact your System Administrator to enable this operation.</value>
   </data>
   <data name="ChocolateyGUI_PreventUsageOfUpdateAllButtonTitle" xml:space="preserve">
     <value>Prevent Usage of Update All Button</value>
+  </data>
+  <data name="ChocolateyGUI_SkipModalDialogConfirmationTitle" xml:space="preserve">
+    <value>Skip Modal Dialog Confirmation</value>
   </data>
   <data name="ChocolateyGUI_ShowAdditionalPackageInformationTitle" xml:space="preserve">
     <value>Show Additional Package Information</value>
@@ -1379,5 +1376,11 @@ Please contact your System Administrator to enable this operation.</value>
   <data name="AdvancedChocolateyDialog_Browse" xml:space="preserve">
     <value>Browse</value>
     <comment>This text is used for both when a user clicks a button supposed to select a file, and when selecting a folder.</comment>
+  </data>
+  <data name="AdvancedChocolateyDialog_IgnoreHttpCache_Header" xml:space="preserve">
+    <value>Ignore HTTP Cache</value>
+  </data>
+  <data name="AdvancedChocolateyDialog_IgnoreHttpCache_ToolTip" xml:space="preserve">
+    <value>Ignore any HTTP caches that have previously been created when querying sources, and create new caches.</value>
   </data>
 </root>
